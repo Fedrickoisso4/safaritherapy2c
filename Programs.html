@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Programs | Safari Therapy & Rehabilitation</title>
+    <style>
+        :root { 
+            --safari-green: #4a5d23; 
+            --safari-navy: #1a365d; 
+            --text-gray: #4a5568;
+            --bg-light: #f8fafc; 
+        }
+
+        /* GLOBAL FIXES */
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: var(--bg-light); color: #2d3748; overflow-x: hidden; width: 100%; }
+
+        /* RESPONSIVE HEADER - (Matched to Home) */
+        header { 
+            background: #fff; 
+            padding: 10px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 3px solid var(--safari-green); 
+            position: sticky; top: 0; z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            flex-wrap: wrap; 
+        }
+        
+        .logo-area { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            text-decoration: none; 
+            color: var(--safari-navy);
+            flex: 1;
+            min-width: 220px;
+        }
+        .logo-area img { height: 40px; }
+        .logo-text { font-weight: 800; font-size: 0.85rem; text-transform: uppercase; line-height: 1.1; }
+
+        nav { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        
+        nav a { text-decoration: none; color: #2d3748; font-weight: 600; font-size: 0.8rem; white-space: nowrap; }
+        .btn-booking { background: var(--safari-green); color: white !important; padding: 8px 12px; border-radius: 5px; font-size: 0.75rem; }
+
+        /* PROGRAMS PAGE HERO - Adaptive Height & Font */
+        .programs-hero { 
+            background: var(--safari-navy); 
+            color: white; 
+            padding: clamp(40px, 8vw, 80px) 5%; 
+            text-align: center;
+        }
+        .programs-hero h1 { font-size: clamp(1.8rem, 6vw, 3rem); margin: 0; letter-spacing: 1px; }
+        .programs-hero p { font-size: clamp(0.9rem, 3vw, 1.1rem); opacity: 0.9; margin-top: 10px; }
+
+        /* VISUAL GRID - Responsive minmax */
+        .container { max-width: 1200px; margin: -40px auto 60px; padding: 0 15px; }
+        .grid { 
+            display: grid; 
+            /* This makes cards 1-column on phones and 2-column on desktops */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px; 
+        }
+
+        .program-card { 
+            background: white; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Disable hover transform on mobile to prevent "sticky" clicks */
+        @media (min-width: 768px) {
+            .program-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        }
+
+        .image-placeholder { 
+            width: 100%; 
+            height: 200px; 
+            background-size: cover; 
+            background-position: center;
+            position: relative;
+        }
+
+        .card-body { padding: 25px; flex-grow: 1; }
+        .card-body h2 { color: var(--safari-navy); margin-top: 0; font-size: 1.4rem; border-left: 5px solid var(--safari-green); padding-left: 15px; }
+        .card-body p { color: var(--text-gray); line-height: 1.6; margin-bottom: 20px; font-size: 0.95rem; }
+
+        .learn-more { 
+            display: inline-block; 
+            text-decoration: none; 
+            color: var(--safari-green); 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            font-size: 0.8rem; 
+            letter-spacing: 1px;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+        .learn-more:hover { border-bottom: 2px solid var(--safari-green); }
+
+        /* FOOTER ACTION - Mobile Friendly */
+        .footer-cta { text-align: center; padding: 50px 5%; background: #fff; border-top: 1px solid #eee; }
+        .footer-cta h3 { font-size: clamp(1.4rem, 5vw, 2rem); color: var(--safari-navy); }
+
+        /* MOBILE OVERLAP FIX */
+        @media (max-width: 600px) {
+            header { padding: 10px; justify-content: center; }
+            .logo-area { justify-content: center; margin-bottom: 10px; text-align: center; }
+            nav { justify-content: center; width: 100%; gap: 12px; }
+            .container { margin-top: -20px; } /* Pull grid closer to hero on mobile */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo-area">
+        <img src="https://star.khaki.co.tz/wp-content/uploads/2025/11/favicon-300x300.png" alt="Logo">
+        <div class="logo-text">Safari Therapy &<br>Rehabilitation</div>
+    </a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="Programs.html">Programs</a>
+        <a href="donate.html">Donate</a>
+        <a href="appointment.html" class="btn-booking">Book Appointment</a>
+    </nav>
+</header>
+
+<section class="programs-hero">
+    <h1>Specialized Care Programs</h1>
+    <p>World-class rehabilitation tailored to your needs.</p>
+</section>
+
+<div class="container">
+    <div class="grid">
+        <div class="program-card">
+            <div class="image-placeholder" style="background-image: url('https://star.khaki.co.tz/wp-content/uploads/2026/01/session-2.jpg');"></div>
+            <div class="card-body">
+                <h2>Physical Therapy</h2>
+                <p>Focusing on orthopedic recovery, sports injuries, and post-surgical rehabilitation. We help you regain strength and motion.</p>
+                <a href="appointment.html" class="learn-more">Schedule Consultation →</a>
+            </div>
+        </div>
+
+        <div class="program-card">
+            <div class="image-placeholder" style="background-image: url('https://images.unsplash.com/photo-1581056344415-0ada6076fe8e?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="card-body">
+                <h2>Occupational Therapy</h2>
+                <p>Designed to help you master activities of daily living. Ideal for stroke recovery and improving functional independence.</p>
+                <a href="appointment.html" class="learn-more">Schedule Consultation →</a>
+            </div>
+        </div>
+
+        <div class="program-card">
+            <div class="image-placeholder" style="background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="card-body">
+                <h2>Pediatric Rehab</h2>
+                <p>A gentle, play-based approach for children with developmental delays or physical disabilities.</p>
+                <a href="appointment.html" class="learn-more">Schedule Consultation →</a>
+            </div>
+        </div>
+
+        <div class="program-card">
+            <div class="image-placeholder" style="background-image: url('https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="card-body">
+                <h2>Speech Pathology</h2>
+                <p>Treating communication, voice, and swallowing disorders with evidence-based techniques for all ages.</p>
+                <a href="appointment.html" class="learn-more">Schedule Consultation →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="footer-cta">
+    <h3>Not sure which program is right?</h3>
+    <p>Contact our experts for a personalized assessment.</p>
+    <a href="appointment.html" class="btn-booking" style="text-decoration:none; display:inline-block; margin-top:10px;">Talk to a Specialist</a>
+</section>
+
+</body>
+</html>

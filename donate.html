@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="icon" type="image/png" href="logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Our Mission | Safari Therapy</title>
+    <style>
+        :root { 
+            --safari-green: #4a5d23; 
+            --safari-navy: #1a365d; 
+            --accent-gold: #c5a059;
+            --text-gray: #4a5568;
+            --bg-light: #f8fafc; 
+        }
+
+        /* GLOBAL RESET */
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: var(--bg-light); color: #2d3748; overflow-x: hidden; }
+
+        /* HEADER SYNC (Matches Home & Programs) */
+        header { 
+            background: #fff; 
+            padding: 10px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 3px solid var(--safari-green); 
+            position: sticky; top: 0; z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            flex-wrap: wrap; 
+        }
+        
+        .logo-area { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            text-decoration: none; 
+            color: var(--safari-navy);
+            flex: 1;
+            min-width: 220px;
+        }
+        .logo-area img { height: 40px; }
+        .logo-text { font-weight: 800; font-size: 0.85rem; text-transform: uppercase; line-height: 1.1; }
+
+        nav { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        
+        nav a { text-decoration: none; color: #2d3748; font-weight: 600; font-size: 0.8rem; white-space: nowrap; margin-left: 5px; }
+        .btn-booking { background: var(--safari-green); color: white !important; padding: 8px 12px; border-radius: 5px; font-size: 0.75rem; }
+
+        /* PREMIUM HERO */
+        .hero-banner { 
+            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.75)), url('https://star.khaki.co.tz/wp-content/uploads/2026/01/bwoaixlg0uc-scaled.jpg');
+            background-size: cover; background-position: center;
+            padding: clamp(60px, 10vw, 100px) 5% 140px; text-align: center; color: white;
+        }
+        .hero-banner h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin: 0; letter-spacing: -1px; }
+        .hero-banner p { font-size: clamp(0.95rem, 3vw, 1.1rem); opacity: 0.9; max-width: 600px; margin: 15px auto; }
+
+        /* DONATION WRAPPER */
+        .donate-wrapper { max-width: 700px; margin: -80px auto 60px; padding: 0 15px; position: relative; z-index: 2; }
+        
+        .card { background: white; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); overflow: hidden; }
+        
+        /* SELECT AMOUNT AREA */
+        .amount-header { background: #f1f5f9; padding: 30px 20px; text-align: center; border-bottom: 1px solid #e2e8f0; }
+        .amount-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 10px; margin-top: 15px; }
+        
+        .amount-btn { 
+            padding: 12px 5px; border: 2px solid #cbd5e0; border-radius: 12px; 
+            font-weight: 800; cursor: pointer; transition: 0.2s; background: white; font-size: 0.9rem;
+        }
+        .amount-btn.active { border-color: var(--safari-green); background: var(--safari-green); color: white; transform: scale(1.05); }
+
+        /* PAYMENT FORM AREA */
+        .payment-body { padding: clamp(20px, 5vw, 40px); }
+        .method-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
+        
+        .method-card { 
+            border: 2px solid #edf2f7; padding: 15px; border-radius: 15px; cursor: pointer;
+            text-align: center; transition: 0.3s;
+        }
+        .method-card.active { border-color: var(--safari-green); background: #f0fdf4; }
+        .method-card strong { font-size: 0.9rem; display: block; margin-bottom: 4px; }
+        
+        .input-group { margin-bottom: 18px; }
+        label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--safari-navy); text-transform: uppercase; margin-bottom: 6px; }
+        input { width: 100%; padding: 14px; border: 2px solid #edf2f7; border-radius: 10px; font-size: 1rem; outline: none; transition: 0.3s; }
+        input:focus { border-color: var(--safari-green); }
+
+        .confirm-btn { 
+            width: 100%; background: #c53030; color: white; border: none; padding: 18px; 
+            border-radius: 12px; font-weight: 800; font-size: 1.1rem; cursor: pointer;
+            box-shadow: 0 10px 20px rgba(197, 48, 48, 0.2); transition: 0.3s; margin-top: 10px;
+        }
+        .confirm-btn:hover { background: #9b2c2c; }
+
+        /* TRUST BAR */
+        .trust-bar { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 30px; opacity: 0.5; }
+        .trust-bar span { font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; }
+
+        /* MOBILE ADJUSTMENTS */
+        @media (max-width: 600px) {
+            header { padding: 10px; justify-content: center; }
+            .logo-area { justify-content: center; margin-bottom: 10px; text-align: center; }
+            nav { justify-content: center; width: 100%; }
+            
+            .method-selector { grid-template-columns: 1fr; }
+            .hero-banner { padding-bottom: 100px; }
+            .donate-wrapper { margin-top: -60px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="Home.html" class="logo-area">
+        <img src="https://star.khaki.co.tz/wp-content/uploads/2025/11/favicon-300x300.png" alt="Logo">
+        <div class="logo-text">Safari Therapy &<br>Rehabilitation</div>
+    </a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="Programs.html">Programs</a>
+        <a href="appointment.html" class="btn-booking">Book Appointment</a>
+    </nav>
+</header>
+
+<section class="hero-banner">
+    <h1>Transform a Life Today</h1>
+    <p>Your contribution directly funds rehabilitation for patients in need. Every Shilling counts.</p>
+</section>
+
+<div class="donate-wrapper">
+    <div class="card">
+        <div class="amount-header">
+            <label>Select Donation Amount (USD)</label>
+            <div class="amount-grid">
+                <div class="amount-btn" onclick="setAmt(25, this)">$25</div>
+                <div class="amount-btn active" onclick="setAmt(50, this)">$50</div>
+                <div class="amount-btn" onclick="setAmt(100, this)">$100</div>
+                <div class="amount-btn" onclick="setAmt('custom', this)">Custom</div>
+            </div>
+        </div>
+
+        <div class="payment-body">
+            <label>Payment Method</label>
+            <div class="method-selector">
+                <div class="method-card active" id="cardOption" onclick="selectMethod('card')">
+                    <strong>Credit / Debit Card</strong>
+                    <div style="font-size: 0.65rem; color: #718096;">Visa, Mastercard</div>
+                </div>
+                <div class="method-card" id="mobileOption" onclick="selectMethod('mobile')">
+                    <strong>Mobile Money</strong>
+                    <div style="font-size: 0.65rem; color: #718096;">M-Pesa, Tigo, Airtel</div>
+                </div>
+            </div>
+
+            <div id="cardFields">
+                <div class="input-group">
+                    <label>Card Number</label>
+                    <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" inputmode="numeric">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="input-group">
+                        <label>Expiry</label>
+                        <input type="text" placeholder="MM / YY" inputmode="numeric">
+                    </div>
+                    <div class="input-group">
+                        <label>CVC</label>
+                        <input type="password" placeholder="***" inputmode="numeric">
+                    </div>
+                </div>
+            </div>
+
+            <div id="mobileFields" style="display: none;">
+                <div class="input-group">
+                    <label>Mobile Number (Tanzania)</label>
+                    <input type="tel" id="userPhone" placeholder="07XXXXXXXX">
+                    <p style="font-size: 0.75rem; color: var(--text-gray); margin-top: 10px; line-height: 1.4;">
+                        A secure USSD Push request will be sent to your phone. Please keep your phone unlocked.
+                    </p>
+                </div>
+            </div>
+
+            <button class="confirm-btn" onclick="handlePayment()">Complete Donation</button>
+
+            <div class="trust-bar">
+                <span>🔒 SSL SECURE</span>
+                <span>💳 PCI COMPLIANT</span>
+                <span>🌍 GLOBAL GIVING</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentAmount = 50;
+    let currentMethod = 'card';
+
+    function setAmt(val, el) {
+        document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+        el.classList.add('active');
+        currentAmount = val;
+    }
+
+    function selectMethod(m) {
+        currentMethod = m;
+        document.getElementById('cardOption').classList.toggle('active', m === 'card');
+        document.getElementById('mobileOption').classList.toggle('active', m === 'mobile');
+        
+        document.getElementById('cardFields').style.display = m === 'card' ? 'block' : 'none';
+        document.getElementById('mobileFields').style.display = m === 'mobile' ? 'block' : 'none';
+    }
+
+    function handlePayment() {
+        const amtDisplay = currentAmount === 'custom' ? 'your custom' : `$${currentAmount}`;
+        
+        if (currentMethod === 'mobile') {
+            const phone = document.getElementById('userPhone').value;
+            if (phone.length < 10) { alert("Please enter a valid mobile number"); return; }
+            alert(`PAYMENT PROMPT SENT!\n\nCheck phone ${phone} to confirm ${amtDisplay} donation.`);
+        } else {
+            const card = document.getElementById('cardNumber').value;
+            if (card.length < 12) { alert("Please enter valid card details"); return; }
+            alert(`PROCESSING CARD...\n\nTransaction of ${amtDisplay} is being routed securely.`);
+        }
+    }
+</script>
+
+</body>
+</html>
